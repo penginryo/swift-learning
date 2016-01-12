@@ -44,3 +44,112 @@ if let isOptional = optionalString {
 let nickName: String? = nil
 let fullName: String = "John Appleseed"
 let informalGreeting = "Hi \(fullName ?? nickName)"
+
+
+// switch
+let color: String = "black"
+switch color {
+	case "red":
+		print("flame")
+	case "blue":
+		print("ocean")
+	case "black":
+		print("night")
+	default:
+		print("none")
+}
+
+
+// while
+var n: Int = 2
+while n <= 200 {
+	n *= 2
+}
+
+
+// function
+func getBMI(weight: Double, height: Double) -> Double {
+	return weight / (height * height)
+}
+let myBMI = getBMI(52.5, height: 1.74)
+
+
+// function with undefined arguments
+func average(numbers: Int...) -> Int {
+	var sum = 0
+	var numOfInputs = 0
+	for n in numbers {
+		sum += n
+		numOfInputs += 1
+	}
+	
+	return sum / numOfInputs
+}
+average(3, 5, 10)
+
+
+// function return function
+func first() -> ((Int) -> Int) {
+	func second(input: Int) -> Int {
+		return input * 2
+	}
+	return second
+}
+var result = first()
+result(10)
+
+
+// class and inheritance
+class NamedShape {
+	var numOfSides = 0
+	var name: String
+	
+	init(name: String) {
+		self.name = name
+	}
+	
+	func simpleDescription() -> String {
+		return "A shape with \(numOfSides) sides"
+	}
+}
+class Square: NamedShape {
+	var sideLength: Double
+	
+	init(sideLength: Double, name: String) {
+		self.sideLength = sideLength
+		super.init(name: name)
+		numOfSides = 4
+	}
+	
+	func area() -> Double {
+		return sideLength * sideLength
+	}
+	
+	override func simpleDescription() -> String {
+		return "A square with sides of length \(sideLength)"
+	}
+}
+let s = Square(sideLength: 2.1, name: "square")
+s.area()
+s.simpleDescription()
+
+class Circle: NamedShape {
+	var radius: Double
+	
+	init(radius: Double, name: String) {
+		self.radius = radius
+		super.init(name: name)
+	}
+	
+	func area() -> Double {
+		return radius * radius * 3.14
+	}
+	
+	override func simpleDescription() -> String {
+		return "A circle with radius of length \(radius)"
+	}
+}
+
+let c = Circle(radius: 5.5, name: "circle")
+c.area()
+c.simpleDescription()
