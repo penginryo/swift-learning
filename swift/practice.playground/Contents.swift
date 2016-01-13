@@ -153,3 +153,82 @@ class Circle: NamedShape {
 let c = Circle(radius: 5.5, name: "circle")
 c.area()
 c.simpleDescription()
+
+
+// enum with type
+enum Rank: Int {
+	case ace = 1
+	case two, three, four, five, six, seven, eight, nine, ten
+	case jack, queen, king
+	func simpleDescription() -> String {
+		switch self {
+			case .ace:
+				return "ace"
+			case .jack:
+				return "jack"
+			case .queen:
+				return "queen"
+			case .king:
+				return "king"
+			default:
+				return String(self.rawValue)
+		}
+	}
+}
+let ace = Rank.ace
+let aceRaw = ace.rawValue
+
+let king = Rank.init(rawValue: 13)
+print(king)
+
+
+// enum with no type
+enum Suit {
+	case Spades, Hearts, Diamonds, Clubs
+	func simpleDescription() -> String {
+		switch self {
+			case .Spades:
+				return "spades"
+			case .Hearts:
+				return "hearts"
+			case .Diamonds:
+				return "diamonds"
+			case .Clubs:
+				return "clubs"
+		}
+	}
+}
+
+let hearts = Suit.Hearts
+let heartsDescription = hearts.simpleDescription()
+
+
+// struct
+struct Card {
+	var rank: Rank
+	var suit: Suit
+	func simpleDescription() -> String {
+		return "\(rank.simpleDescription()) of \(suit.simpleDescription())"
+	}
+}
+let fiveHearts = Card(rank: .five, suit: .Hearts)
+let description = fiveHearts.simpleDescription()
+
+
+// protocols
+protocol ExampleProtocol {
+	var simpleDescription: String { get }
+	func adjust()
+}
+class SimpleClass: ExampleProtocol {
+	var simpleDescription: String = "a simple class"
+	var anotherProperty: Int = 11903
+	func adjust() {
+		simpleDescription += "100% adjusted"
+	}
+}
+var instance = SimpleClass()
+instance.adjust()
+let instanceDescription = instance.simpleDescription
+
+
