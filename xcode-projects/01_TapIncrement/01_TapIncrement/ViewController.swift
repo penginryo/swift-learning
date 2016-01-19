@@ -14,7 +14,10 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var countDisplay: UILabel!
 	
-	
+	@IBAction func infiniteIncrement(sender: UILongPressGestureRecognizer) {
+		count += 1
+		countDisplay.text = "\(count)"
+	}
 	
 	@IBAction func incrementButton(sender: UIButton) {
 		count += 1

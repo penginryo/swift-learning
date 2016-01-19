@@ -19,10 +19,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-xP-85e">
                                 <rect key="frame" x="282" y="370" width="36" height="39"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Tap"/>
                                 <connections>
                                     <action selector="incrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vee-sD-q8r"/>
+                                    <outletCollection property="gestureRecognizers" destination="Dxm-Aw-nQh" appends="YES" id="oqi-xP-01O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5g-Ot-r36">
@@ -55,6 +57,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Dxm-Aw-nQh">
+                    <connections>
+                        <action selector="infiniteIncrement:" destination="BYZ-38-t0r" id="XVh-cY-QCf"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139" y="389"/>
         </scene>
