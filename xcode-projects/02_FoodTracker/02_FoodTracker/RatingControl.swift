@@ -1,6 +1,6 @@
 import UIKit
 
-class RatingControll: UIView {
+class RatingControl: UIView {
 	
 	var rating = 0 {
 		didSet {
