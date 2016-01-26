@@ -18,6 +18,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 	
 	@IBOutlet weak var ratingControl: RatingControl!
 	
+	var meal: Meal?
+	
+	@IBOutlet weak var saveButton: UIBarButtonItem!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -48,8 +52,19 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
+	// MARK: navigation
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if saveButton === sender {
+			let name = nameTextField.text ?? ""
+			let photo = photoImageView.image
+			let rating = ratingControl.rating
+			
+			meal = Meal(name: name, photo: photo, rating: rating)
+		}
+	}
+	
 	// MARK: actions
-
 
 	@IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
 		// hide the keyboard
