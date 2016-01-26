@@ -92,7 +92,7 @@
                                             <outletCollection property="gestureRecognizers" destination="r42-Hi-9Cl" appends="YES" id="Nvm-hA-2cB"/>
                                         </connections>
                                     </imageView>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="Sbw-ey-qzp" customClass="RatingControll">
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="Sbw-ey-qzp" customClass="RatingControl" customModule="_2_FoodTracker" customModuleProvider="target">
                                         <rect key="frame" x="160" y="374" width="240" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
